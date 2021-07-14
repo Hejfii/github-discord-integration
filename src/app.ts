@@ -15,4 +15,4 @@ app.post('/github', (req: Request, res: Request) => {
 
 app.listen(3000, () => {
     console.log(`App Listening at http://localhost:3000`)
-})
+}) 
