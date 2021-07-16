@@ -7,7 +7,6 @@ namespace DiscordIntegration
     [JsonObject(MemberSerialization.OptIn)]
     public class DiscordMessageEmbed
     {
-        // TODO: Automatically convert HEX to decimal
         /// <summary>
         /// Color code of the embed. Has to be Decimal
         /// </summary>
@@ -70,7 +69,7 @@ namespace DiscordIntegration
 
         public DiscordMessageEmbed(
             string title = null,
-            int? color = null,
+            string color = null,
             DiscordMessageEmbedAuthor author = null,
             string url = null,
             string description = null,
@@ -79,7 +78,7 @@ namespace DiscordIntegration
             DiscordMessageEmbedImage image = null,
             DiscordMessageEmbedFooter footer = null)
         {
-            this.Color = color;
+            this.Color = color != null ? int.Parse(color, System.Globalization.NumberStyles.HexNumber) : null;
             this.Author = author;
             this.Title = title?.Trim();
             this.Url = url?.Trim();
