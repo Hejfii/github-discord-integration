@@ -62,6 +62,7 @@ namespace DiscordIntegration
             DiscordMessageEmbed[] embeds = null)
         {
             this.Url = url;
+            this.Content = content;
             this.Username = username?.Trim();
             this.AvatarUrl = avatarUrl?.Trim();
             this.Tts = tts;
