@@ -19,18 +19,18 @@ namespace DiscordIntegration.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromQuery(Name = "serverId")] string serverId, [FromQuery(Name = "webhookToken")] string webhookToken)
         {
-            var _discordUrl = $"https://discord.com/api/webhooks/{serverId}/{webhookToken}";
-            var _gitAvatarUrl = "https://asd.com/";
+            var discordUrl = $"https://discord.com/api/webhooks/{serverId}/{webhookToken}";
+            var gitAvatarUrl = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
             //var orderedEmbeds = embeds.OrderBy(e => e.Timestamp).ToList();
             var messages = new List<DiscordMessage>();
             for (var i = 0; i < 50; i += 10)
             {
                 messages.Add(new DiscordMessage
                 (
-                    _discordUrl, // WEBHOOK URL
+                    discordUrl, // WEBHOOK URL
                     8 > 1 ? "**8 commits**" : "", // CONTENT
                     "GitHub", // USERNAME
-                    "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png", // AVATAR URL
+                    gitAvatarUrl, // AVATAR URL
                     false // TTS
                 ));
             }
