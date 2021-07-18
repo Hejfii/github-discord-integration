@@ -120,7 +120,7 @@ namespace DiscordIntegration
             
         }
 
-        public DiscordMessageEmbedAuthor(string name, string url = null, string iconUrl = null)
+        public DiscordMessageEmbedAuthor(string name = null, string url = null, string iconUrl = null)
         {
             this.Name = name?.Trim();
             this.Url = url?.Trim();
