@@ -11,55 +11,55 @@ namespace DiscordIntegration
         /// Color code of the embed. Has to be Decimal
         /// </summary>
         [JsonProperty("color")]
-        public int? Color { get; private set; }
+        public int? Color { get; set; }
         
         /// <summary>
         /// Embed author object
         /// </summary>
         [JsonProperty("author")]
-        public DiscordMessageEmbedAuthor Author { get; private set; }
+        public DiscordMessageEmbedAuthor Author { get; set; }
         
         /// <summary>
         /// Title of embed
         /// </summary>
         [JsonProperty("title")]
-        public string Title { get; private set; }
+        public string Title { get; set; }
         
         /// <summary>
         /// Url of embed. If title was used, it becomes hyperlink
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; private set; }
-        
+        public string Url { get; set; }
+
         /// <summary>
         /// Description text
         /// </summary>
         [JsonProperty("description")]
-        public string Description { get; private set; }
-        
+        public string Description { get; set; }
+
         /// <summary>
         /// Array of embed filed objects
         /// </summary>
         [JsonProperty("fields")]
-        public DiscordMessageEmbedField[] Fields { get; private set; }
+        public DiscordMessageEmbedField[] Fields { get; set; }
         
         /// <summary>
         /// Embed thumbnail object
         /// </summary>
         [JsonProperty("thumbnail")]
-        public DiscordMessageEmbedThumbnail Thumbnail { get; private set; }
+        public DiscordMessageEmbedThumbnail Thumbnail { get; set; }
         
         /// <summary>
         /// Embed image object
         /// </summary>
         [JsonProperty("image")]
-        public DiscordMessageEmbedImage Image { get; private set; }
+        public DiscordMessageEmbedImage Image { get; set; }
         
         /// <summary>
         /// Embed footer object
         /// </summary>
         [JsonProperty("footer")]
-        public DiscordMessageEmbedFooter Footer { get; private set; }
+        public DiscordMessageEmbedFooter Footer { get; set; }
 
         [JsonConstructor]
         private DiscordMessageEmbed()
@@ -100,19 +100,19 @@ namespace DiscordIntegration
         /// Name of author
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
         
         /// <summary>
         /// Url of author. If name was used, it becomes a hyperlink
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; private set; }
+        public string Url { get; set; }
         
         /// <summary>
         /// Url of author icon
         /// </summary>
         [JsonProperty("icon_url")]
-        public string IconUrl { get; private set; }
+        public string IconUrl { get; set; }
 
         [JsonConstructor]
         private DiscordMessageEmbedAuthor()
@@ -138,19 +138,19 @@ namespace DiscordIntegration
         /// The name of the field
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
         
         /// <summary>
         /// The value of the field
         /// </summary>
         [JsonProperty("value")]
-        public string Value { get; private set; }
+        public string Value { get; set; }
         
         /// <summary>
         /// If true, fields will be displayed in the same line, but there can only be 3 max in the same line or 2 max if you used thumbnail
         /// </summary>
         [JsonProperty("inline")]
-        public bool InLine { get; private set; }
+        public bool InLine { get; set; }
 
         [JsonConstructor]
         private DiscordMessageEmbedField()
@@ -176,7 +176,7 @@ namespace DiscordIntegration
         /// Url of thumbnail
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; private set; }
+        public string Url { get; set; }
 
         [JsonConstructor]
         private DiscordMessageEmbedThumbnail()
@@ -200,7 +200,7 @@ namespace DiscordIntegration
         /// Url of image
         /// </summary>
         [JsonProperty("url")]
-        public string Url { get; private set; }
+        public string Url { get; set; }
 
         [JsonConstructor]
         private DiscordMessageEmbedImage()
@@ -224,13 +224,13 @@ namespace DiscordIntegration
         /// Footer Text, doesn't support Markdown
         /// </summary>
         [JsonProperty("text")]
-        public string Text { get; private set; }
+        public string Text { get; set; }
         
         /// <summary>
         /// Url of footer icon
         /// </summary>
         [JsonProperty("icon_url")]
-        public string IconUrl { get; private set; }
+        public string? IconUrl { get; set; }
 
         [JsonConstructor]
         private DiscordMessageEmbedFooter()
@@ -238,7 +238,7 @@ namespace DiscordIntegration
             
         }
 
-        public DiscordMessageEmbedFooter(string text, string iconUrl)
+        public DiscordMessageEmbedFooter(string text, string? iconUrl = null)
         {
             this.Text = text?.Trim();
             this.IconUrl = iconUrl?.Trim();
