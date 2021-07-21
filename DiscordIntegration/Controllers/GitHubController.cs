@@ -36,7 +36,7 @@ namespace DiscordIntegration.Controllers
             {
                 var txt = await reader.ReadToEndAsync();
 
-                if (IsGithubPushAllowed(txt, eventName, signature))
+                if (IsGithubPushAllowed(content.ToString(), eventName, signature))
                 {
 
                     if (serverId == null || webhookToken == null || content == null)
