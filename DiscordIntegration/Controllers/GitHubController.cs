@@ -116,6 +116,11 @@ namespace DiscordIntegration.Controllers
                                 $"{repoName} | {data["check_run"]["completed_at"].ToString()}")
                         });
                     }
+                    
+                    if (commits == null && data["action"] != null && data["action"].ToString() != "completed" || data["check_run"]["check_suite"] == null)
+                    {
+                        return Conflict("No data");
+                    }
 
                     //var orderedEmbeds = embeds.ToArray().OrderBy(e => e.Timestamp).ToList();
                     var messages = new List<DiscordMessage>();
